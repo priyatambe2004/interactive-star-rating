@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Star Rating Widget</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="top">
+      <h1>Star Rating Widget</h1>
+      <p class="hint">Hover over the stars to preview, click to choose your rating.</p>
+    </header>
+
+    <div class="layout">
+      <!-- Rating widget -->
+      <section class="rate-card" aria-labelledby="rate-title">
+        <h2 id="rate-title">How was your experience?</h2>
+
+        <div class="face" id="face" aria-hidden="true">🤔</div>
+
+        <!-- data-value on every star stores its rating (1 to 5) -->
+        <div class="stars" id="stars" role="radiogroup" aria-label="Rating from 1 to 5 stars">
+          <button type="button" class="star" role="radio" aria-checked="false" aria-label="1 star" data-value="1" tabindex="0">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4 6.1 20.5l1.2-6.5L2.5 9.4l6.6-.9z"/></svg>
+          </button>
+          <button type="button" class="star" role="radio" aria-checked="false" aria-label="2 stars" data-value="2" tabindex="-1">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4 6.1 20.5l1.2-6.5L2.5 9.4l6.6-.9z"/></svg>
+          </button>
+          <button type="button" class="star" role="radio" aria-checked="false" aria-label="3 stars" data-value="3" tabindex="-1">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4 6.1 20.5l1.2-6.5L2.5 9.4l6.6-.9z"/></svg>
+          </button>
+          <button type="button" class="star" role="radio" aria-checked="false" aria-label="4 stars" data-value="4" tabindex="-1">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4 6.1 20.5l1.2-6.5L2.5 9.4l6.6-.9z"/></svg>
+          </button>
+          <button type="button" class="star" role="radio" aria-checked="false" aria-label="5 stars" data-value="5" tabindex="-1">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4 6.1 20.5l1.2-6.5L2.5 9.4l6.6-.9z"/></svg>
+          </button>
+        </div>
+
+        <p id="label" class="label">Choose a rating</p>
+        <p id="current" class="current" aria-live="polite">Current rating: <strong id="current-value">none</strong></p>
+
+        <label for="comment" class="comment-label">Tell us more <span>(optional)</span></label>
+        <textarea id="comment" maxlength="200" rows="3" placeholder="What did you like or dislike?"></textarea>
+        <p id="char-count" class="char-count">0 / 200</p>
+
+        <div class="actions">
+          <button type="button" id="submit" class="primary" disabled>Submit rating</button>
+          <button type="button" id="reset" class="secondary">Reset</button>
+        </div>
+        <p id="thanks" class="thanks" role="status"></p>
+      </section>
+
+      <!-- Summary -->
+      <aside class="summary" aria-labelledby="sum-title">
+        <h2 id="sum-title">Customer ratings</h2>
+        <div class="avg-row">
+          <p class="avg" id="avg">0.0</p>
+          <div>
+            <div class="avg-stars" id="avg-stars" aria-hidden="true"></div>
+            <p class="total" id="total">0 ratings</p>
+          </div>
+        </div>
+        <ul class="bars">
+          <li>
+            <span class="bar-label">5 ★</span>
+            <span class="bar-track"><span class="bar-fill" id="bar-5"></span></span>
+            <span class="bar-count" id="count-5">0</span>
+          </li>
+          <li>
+            <span class="bar-label">4 ★</span>
+            <span class="bar-track"><span class="bar-fill" id="bar-4"></span></span>
+            <span class="bar-count" id="count-4">0</span>
+          </li>
+          <li>
+            <span class="bar-label">3 ★</span>
+            <span class="bar-track"><span class="bar-fill" id="bar-3"></span></span>
+            <span class="bar-count" id="count-3">0</span>
+          </li>
+          <li>
+            <span class="bar-label">2 ★</span>
+            <span class="bar-track"><span class="bar-fill" id="bar-2"></span></span>
+            <span class="bar-count" id="count-2">0</span>
+          </li>
+          <li>
+            <span class="bar-label">1 ★</span>
+            <span class="bar-track"><span class="bar-fill" id="bar-1"></span></span>
+            <span class="bar-count" id="count-1">0</span>
+          </li>
+        </ul>
+        <p class="note">Sample ratings are shown. Your submitted rating is added to the totals until you refresh the page.</p>
+      </aside>
+    </div>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
